@@ -54,7 +54,10 @@ class ner():
                group = [value]
                output.append(group)
             elif tag == 'I-TAG':
-                group.append(value)
+                if isinstance(group, list):
+                    group.append(value)
+                else:
+                    group = [value]
             elif tag == 'O':
                 group = value
                 output.append(group)
